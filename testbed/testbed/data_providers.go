@@ -58,6 +58,7 @@ func (dp *perfTestDataProvider) GenerateTraces() (ptrace.Traces, bool) {
 	spans := traceData.ResourceSpans().AppendEmpty().ScopeSpans().AppendEmpty().Spans()
 	spans.EnsureCapacity(dp.options.ItemsPerBatch)
 
+	// ItemsPerBatch 的大小决定了一条 trace 中有多少个span
 	traceID := dp.traceIDSequence.Add(1)
 	for i := 0; i < dp.options.ItemsPerBatch; i++ {
 

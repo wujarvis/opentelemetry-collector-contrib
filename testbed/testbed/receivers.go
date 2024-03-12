@@ -148,6 +148,10 @@ func NewOTLPDataReceiver(port int) *BaseOTLPDataReceiver {
 	return &BaseOTLPDataReceiver{
 		DataReceiverBase: DataReceiverBase{Port: port},
 		exporterType:     "otlp",
+		sendingQueue: `sending_queue:
+      enabled: 'true'
+      num_consumers: 10
+      queue_size: 10000`,
 	}
 }
 

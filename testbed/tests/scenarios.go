@@ -244,6 +244,7 @@ func Scenario10kItemsPerSecondAlternateBackend(
 
 // TestCase for Scenario1kSPSWithAttrs func.
 type TestCase struct {
+	SPS            int
 	attrCount      int
 	attrSizeByte   int
 	expectedMaxCPU uint32
@@ -261,11 +262,11 @@ func genRandByteString(length int) string {
 
 // Scenario1kSPSWithAttrs runs a performance test at 1k sps with specified span attributes
 // and test options.
-func Scenario1kSPSWithAttrs(t *testing.T, args []string, tests []TestCase, processors map[string]string, extensions map[string]string) {
+func ScenarioSPSWithAttrs(t *testing.T, args []string, tests []TestCase, processors map[string]string, extensions map[string]string) {
 	for i := range tests {
 		test := tests[i]
 
-		t.Run(fmt.Sprintf("%d*%dbytes", test.attrCount, test.attrSizeByte), func(t *testing.T) {
+		t.Run(fmt.Sprintf("%d*%dbytes*%dSPS", test.attrCount, test.attrSizeByte, test.SPS), func(t *testing.T) {
 
 			options := constructLoadOptions(test)
 

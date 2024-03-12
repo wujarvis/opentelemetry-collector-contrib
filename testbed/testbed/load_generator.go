@@ -208,6 +208,7 @@ func (ps *ProviderSender) generate() {
 
 		go func() {
 			defer workers.Done()
+			// 每秒 trace 数 = ps.options.DataItemsPerSecond/ps.options.ItemsPerBatch/numWorkers
 			t := time.NewTicker(time.Second / time.Duration(ps.options.DataItemsPerSecond/ps.options.ItemsPerBatch/numWorkers))
 			defer t.Stop()
 			for {

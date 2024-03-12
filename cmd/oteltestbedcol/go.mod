@@ -18,6 +18,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/storage/filestorage v0.96.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor v0.96.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor v0.96.0
+	github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor v0.96.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/carbonreceiver v0.96.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filelogreceiver v0.96.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/fluentforwardreceiver v0.96.0
@@ -292,6 +293,8 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.3.0 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor => ../../processor/tailsamplingprocessor
 
 replace github.com/open-telemetry/opentelemetry-collector-contrib/extension/storage => ../../extension/storage
 

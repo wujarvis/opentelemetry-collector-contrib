@@ -3,6 +3,7 @@
 package main
 
 import (
+	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor"
 	"go.opentelemetry.io/collector/connector"
 	"go.opentelemetry.io/collector/exporter"
 	debugexporter "go.opentelemetry.io/collector/exporter/debugexporter"
@@ -103,6 +104,7 @@ func components() (otelcol.Factories, error) {
 		memorylimiterprocessor.NewFactory(),
 		attributesprocessor.NewFactory(),
 		resourceprocessor.NewFactory(),
+		tailsamplingprocessor.NewFactory(),
 	)
 	if err != nil {
 		return otelcol.Factories{}, err
